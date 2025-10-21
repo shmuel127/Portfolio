@@ -1,8 +1,50 @@
 :root { --w: 900px; font: 16px/1.5 system-ui, Segoe UI, Roboto, Arial, sans-serif; }
 body { margin: 0; color: #111; }
 header { padding: 2rem 1rem; border-bottom: 1px solid #eee; }
-header nav a { margin-right: 1rem; text-decoration: none; }
+header nav a { margin-right: 1rem; text-decoration: none; color: inherit; }
+header nav a.active { font-weight: 600; border-bottom: 2px solid currentColor; }
+header nav a:focus-visible { outline: 2px solid #333; outline-offset: 4px; }
 main { max-width: var(--w); margin: 2rem auto; padding: 0 1rem; }
 h1,h2 { margin: 0 0 .5rem; }
+section + section { margin-top: 2.5rem; }
 ul { padding-left: 1.2rem; }
 footer { text-align: center; padding: 2rem 1rem; color: #666; border-top: 1px solid #eee; }
+
+.cv-summary {
+  background: #f8f9fb;
+  border: 1px solid #e2e6ef;
+  padding: 1.5rem;
+  border-radius: 12px;
+}
+
+.cv-grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.cv-entry h3 {
+  margin: 0 0 .25rem;
+}
+
+.cv-entry header {
+  padding: 0;
+  border: 0;
+  display: flex;
+  flex-direction: column;
+  gap: .25rem;
+}
+
+.cv-meta {
+  color: #555;
+  font-size: 0.95rem;
+}
+
+@media (min-width: 720px) {
+  .cv-grid.two-column {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .cv-grid.three-column {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
